@@ -1,5 +1,5 @@
 const {Client,GatewayIntentBits,PermissionsBitField,AuditLogEvent,EmbedBuilder,ActionRowBuilder,ButtonBuilder,ButtonStyle,StringSelectMenuBuilder,ChannelSelectMenuBuilder,ChannelType,RoleSelectMenuBuilder,ModalBuilder,TextInputBuilder,TextInputStyle,AttachmentBuilder}=require("discord.js");
-const fs=require("fs"), TOKEN=process.env.DISCORD_TOKEN||"COLE_SEU_NOVO_TOKEN_AQUI", PREFIX=".", DB="./database.json";
+const fs=require("fs"), TOKEN=process.env.DISCORD_TOKEN||"MTU0NTE0NjU5Nzk5Njc1NzAyMg.Ghb5rJ.BGtD1HkKNcMP4BsLI3pwiazyl698ThGdUWWXTE", PREFIX=".", DB="./database.json";
 let db={};try{if(fs.existsSync(DB))db=JSON.parse(fs.readFileSync(DB,"utf8"))}catch(e){console.log(e)}
 const save=()=>fs.writeFileSync(DB,JSON.stringify(db,null,2));
 function D(id){if(!db[id])db[id]={anti:{on:false,perms:false,roles:false,log:null,white:[]},auto:{on:false,ch:null,msg:"",min:10,n:1,last:[]},tickets:{staff:[],open:null,close:null,cats:{},owners:{},stats:{}},analyst:{roles:[],request:[],ch:null,log:null,stats:{},active:{}},lock:{roles:[]}};save();return db[id]}

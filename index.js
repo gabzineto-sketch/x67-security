@@ -1,5 +1,5 @@
 const {Client,GatewayIntentBits,PermissionsBitField,AuditLogEvent,EmbedBuilder,ActionRowBuilder,ButtonBuilder,ButtonStyle,StringSelectMenuBuilder,ChannelSelectMenuBuilder,ChannelType,RoleSelectMenuBuilder,ModalBuilder,TextInputBuilder,TextInputStyle,AttachmentBuilder}=require("discord.js");
-const fs=require("fs"), TOKEN=process.env.DISCORD_TOKEN||"MTU0NTE0NjU5Nzk5Njc1NzAyMg.Ghb5rJ.BGtD1HkKNcMP4BsLI3pwiazyl698ThGdUWWXTE", PREFIX=".", DB="./database.json";
+const fs=require("fs"), TOKEN=process.env.DISCORD_TOKEN||"COLE_SEU_NOVO_TOKEN_AQUI", PREFIX=".", DB="./database.json";
 let db={};try{if(fs.existsSync(DB))db=JSON.parse(fs.readFileSync(DB,"utf8"))}catch(e){console.log(e)}
 const save=()=>fs.writeFileSync(DB,JSON.stringify(db,null,2));
 function D(id){if(!db[id])db[id]={anti:{on:false,perms:false,roles:false,log:null,white:[]},auto:{on:false,ch:null,msg:"",min:10,n:1,last:[]},tickets:{staff:[],open:null,close:null,cats:{},owners:{},stats:{}},analyst:{roles:[],request:[],ch:null,log:null,stats:{},active:{}},lock:{roles:[]}};save();return db[id]}
@@ -72,4 +72,4 @@ if(i.customId==="addmodal"){let id=i.fields.getTextInputValue("user").trim();awa
 if(i.customId==="remmodal"){let id=i.fields.getTextInputValue("user").trim();await i.channel.permissionOverwrites.delete(id).catch(()=>{});return i.reply({content:`✅ <@${id}> removido.`,ephemeral:true})}
 if(i.customId==="renmodal"){let n=clean(i.fields.getTextInputValue("name"));await i.channel.setName(n);return i.reply({content:`✅ ${n}`,ephemeral:true})}}
 }catch(e){console.error(e);if(i.isRepliable()&&!i.replied&&!i.deferred)i.reply({content:"❌ Erro. Veja o Termux.",ephemeral:true}).catch(()=>{})}});
-if(!TOKEN||TOKEN==="MTU0NDk2NzQ0MzUxNTE4NzI2MQ.GbP0Jg.hFTVBBQuC252i9oxiqzdNyA5ZKCFliB3f9z6Y8")console.log("Defina DISCORD_TOKEN ou coloque o token em TOKEN.");else bot.login(TOKEN).catch(e=>console.error("Erro no login:",e.message));
+if(!TOKEN||TOKEN==="COLE_SEU_NOVO_TOKEN_AQUI")console.log("Defina DISCORD_TOKEN ou coloque o token em TOKEN.");else bot.login(TOKEN).catch(e=>console.error("Erro no login:",e.message));
